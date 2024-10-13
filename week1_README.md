@@ -57,9 +57,9 @@ from delivery_time;
 ## 4. How many users have only made one purchase? Two purchases? Three+ purchases?
 
 ### Answer
-25 users placed 1 order
-28 users placed 2 orders
-71 users placed 3 or more orders
+- 25 users placed 1 order
+- 28 users placed 2 orders
+- 71 users placed 3 or more orders
 
 ### Query
 ```sql
