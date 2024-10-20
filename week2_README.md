@@ -23,7 +23,7 @@ User likely to buy again could have many indicators:
 - They are already repeat customers with multiple orders.
 - Website behaviour, did they vistit a certain products multiple times already?
 - Do they search for Greenery, a specific species or even plant size? The more specific their search is, the more likely they are in the market to buy.
-- Is they way they visit direct to the Greenery website? (i.e. typing in the url directly) If they came via an advertisement or price comparison website (i.e. Google Shopping) then we know their brand retention is lower and they are more likely to be price shoppers.
+- Do they visit the Greenery website directly? (i.e. typing in the url directly) If they came via an advertisement or price comparison website (i.e. Google Shopping) then we know their brand retention is lower and they are more likely to be price shoppers.
 - Demographics: male/female, homeowner/renter, income bracket, payment method, location (wealthy/poor neighborhood), external buying behavior (from data broker), etc.
 
 
