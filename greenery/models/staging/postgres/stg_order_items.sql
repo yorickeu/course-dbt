@@ -1,11 +1,5 @@
-{{
-  config(
-    materialized='table'
-  )
-}}
-
-SELECT 
+select 
   order_id
 , product_id
 , quantity
-FROM {{ source('postgres', 'order_items') }}
+from {{ source('postgres', 'order_items') }}

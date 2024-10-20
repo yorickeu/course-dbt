@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: fact_user_repeat_rate
+    description: Customer repeat order rate
+    # columns:
+    #   - name: address_id
+    #     data_tests:
+    #       - not_null
+    #       - unique

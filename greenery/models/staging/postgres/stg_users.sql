@@ -1,16 +1,10 @@
-{{
-  config(
-    materialized='table'
-  )
-}}
-
-SELECT 
+select 
   user_id
 , first_name
 , last_name
 , email
 , phone_number
-, created_at
-, updated_at
+, convert_timezone('UTC', created_at) as created_at_utc
+, convert_timezone('UTC', updated_at) as updated_at_utc
 , address_id
-FROM {{ source('postgres', 'users') }}
+from {{ source('postgres', 'users') }}

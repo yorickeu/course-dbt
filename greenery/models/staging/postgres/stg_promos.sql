@@ -1,11 +1,5 @@
-{{
-  config(
-    materialized='table'
-  )
-}}
-
-SELECT 
+select 
   promo_id
 , discount
 , status
-FROM {{ source('postgres', 'promos') }}
+from {{ source('postgres', 'promos') }}

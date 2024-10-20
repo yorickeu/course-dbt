@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: fact_page_views
+    description: Number of page views per product per day
+    # columns:
+    #   - name: address_id
+    #     data_tests:
+    #       - not_null
+    #       - unique
+  - name: fact_products_ordered
+    description: Product order quantity per day
+    # columns:
+    #   - name: address_id
+    #     data_tests:
+    #       - not_null
+    #       - unique

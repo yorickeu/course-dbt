@@ -1,13 +1,7 @@
-{{
-  config(
-    materialized='table'
-  )
-}}
-
-SELECT 
+select 
   address_id
 , address
 , zipcode
 , state
 , country
-FROM {{ source('postgres', 'addresses') }}
+from {{ source('postgres', 'addresses') }}
