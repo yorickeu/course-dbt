@@ -45,7 +45,7 @@ I mainly wanted to answer the questions for this week. So I created these marts:
 For the last mart I needed to do more processing, so I decided to split this into a intermediate model:
 - int_user_repeat_orders
 
-I could probably add many more intermediate tables, and them dimension and marts. I intend to do this for next week. Do you have any suggestions for intermediate models or marts?
+I could probably add many more intermediate, fact, dimension and marts tables. I intend to do this for next week. Do you have any suggestions for intermediate models or marts?
 
 
 ### 5. Use the dbt docs to visualize your model DAGs to ensure the model layers make sense
