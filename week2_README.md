@@ -3,7 +3,6 @@
 ## Part 1: Models
 
 ### 1. What is our user repeat rate?
-Repeat Rate = Users who purchased 2 or more times / users who purchased
 
 #### Answer
 The user repeat order rate is 79.84 %
@@ -18,20 +17,17 @@ from
 ```
 
 ### 2. What are good indicators of a user who will likely purchase again?
-What about indicators of users who are likely NOT to purchase again? If you had more data, what features would you want to look into to answer this question?
 
 #### Answer
 User likely to buy again could have many indicators:
 - They are already repeat customers with multiple orders.
-- The source of their vistit is direct to the website. If they came via an advertisement or price comparison website (i.e. Google Shopping) then we know their brand retention is lower and they are more likely to be price shoppers.
-- Demographics: male/female, homeowner/renter, income bracket, payment method, location (welthy/poor neighborhood), external bought buying behavior, etc.
+- Website behaviour, did they vistit a certain products multiple times already?
+- Do they search for Greenery, a specific species or even plant size? The more specific their search is, the more likely they are in the market to buy.
+- Is they way they visit direct to the Greenery website? (i.e. typing in the url directly) If they came via an advertisement or price comparison website (i.e. Google Shopping) then we know their brand retention is lower and they are more likely to be price shoppers.
+- Demographics: male/female, homeowner/renter, income bracket, payment method, location (wealthy/poor neighborhood), external buying behavior (from data broker), etc.
 
 
 ### 3. Create a marts folder, so we can organize our models. Within each marts folder, create intermediate models and dimension/fact models.
-With the following subfolders for business units:
-- Product -- required
-- Core -- optional
-- Marketing -- optional 
 
 #### Answer
 See Github: https://github.com/yorickeu/course-dbt/tree/main/greenery/models
@@ -49,7 +45,7 @@ I mainly wanted to answer the questions for this week. So I created these marts:
 For the last mart I needed to do more processing, so I decided to split this into a intermediate model:
 - int_user_repeat_orders
 
-I could probably add many more intermediate tables, and them dimension and marts. Do you have any suggestions?
+I could probably add many more intermediate tables, and them dimension and marts. I intend to do this for next week. Do you have any suggestions for intermediate models or marts?
 
 
 ### 5. Use the dbt docs to visualize your model DAGs to ensure the model layers make sense
@@ -66,7 +62,7 @@ I could probably add many more intermediate tables, and them dimension and marts
 See the tests here:
 https://github.com/yorickeu/course-dbt/blob/main/greenery/models/staging/postgres/_postgres__models.yml
 
-I mainly test for ID values to be not null and unique. And then for quantities and prices to be not null and positive. There is probablt much more I could test for. I a would be interested in relational tests when you can test for mutual ID's being present in 2 tables. But I do not know how to do that yet.
+I mainly test for ID values to be not null and unique. And then for quantities and prices to be not null and positive. There is probably much more I could test for. I am interested in relational tests when you can test for mutual ID's being present in 2 tables. But I do not know how to do that yet.
 
 
 ### 2. Did you find any “bad” data as you added and ran tests on your models? How did you go about either cleaning the data in the dbt model or adjusting your assumptions/tests?
@@ -78,7 +74,7 @@ No I did not find any "bad" data with the simple tests I used... I think the dat
 ### 3. Your stakeholders at Greenery want to understand the state of the data each day. Explain how you would ensure these tests are passing regularly and how you would alert stakeholders about bad data getting through.
 
 #### Answer
-I would set-up many more data tests in DBT, and run them daily. On a warning or failure I would automatically send a Slack or email message to alert the Analytics team first, and possibly the stakeholder directly if they were consuming the data directly.
+I would set-up many more data tests in DBT, and run them daily. When receiving a warning or failure I would automatically send a Slack or email message to alert the Analytics team first, and possibly the stakeholder directly if they were consuming the data directly in a dashboard.
 
 
 ## Part 3: dbt Snapshots
