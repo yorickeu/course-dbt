@@ -63,3 +63,57 @@ I could probably add many more intermediate tables, and them dimension and marts
 ### 1. What assumptions are you making about each model?
 
 #### Answer
+See the tests here:
+https://github.com/yorickeu/course-dbt/blob/main/greenery/models/staging/postgres/_postgres__models.yml
+
+I mainly test for ID values to be not null and unique. And then for quantities and prices to be not null and positive. There is probablt much more I could test for. I a would be interested in relational tests when you can test for mutual ID's being present in 2 tables. But I do not know how to do that yet.
+
+
+### 2. Did you find any “bad” data as you added and ran tests on your models? How did you go about either cleaning the data in the dbt model or adjusting your assumptions/tests?
+
+#### Answer
+No I did not find any "bad" data with the simple tests I used... I think the data is very clean compared to what I am used to in a corporate environment.
+
+
+### 3. Your stakeholders at Greenery want to understand the state of the data each day. Explain how you would ensure these tests are passing regularly and how you would alert stakeholders about bad data getting through.
+
+#### Answer
+I would set-up many more data tests in DBT, and run them daily. On a warning or failure I would automatically send a Slack or email message to alert the Analytics team first, and possibly the stakeholder directly if they were consuming the data directly.
+
+
+## Part 3: dbt Snapshots
+
+### 1. Which products had their inventory change from week 1 to week 2? 
+
+#### Answer
+![Inventory changed image](<images/week2_changed_inventory.png >)
+
+```sql
+with inventory_week1 AS (
+  select
+    product_id
+  , name
+  , inventory
+  from dev_db.dbt_yorickschekermansgreenpeaceorg.inventory_snapshot
+  where date(dbt_valid_to) >= '2024-10-20'
+)
+
+, inventory_week2 AS (
+  select
+    product_id
+  , name
+  , inventory
+  from dev_db.dbt_yorickschekermansgreenpeaceorg.inventory_snapshot
+  where date(dbt_valid_from) >= '2024-10-20'
+)
+
+select
+  w1.name
+, w1.inventory AS w1_inventory
+, w2.inventory AS w2_inventory
+, w2.inventory - w1.inventory as changed_inventory
+from
+  inventory_week1 as w1
+left join inventory_week2 as w2
+  on w1.product_id = w2.product_id;
+```
